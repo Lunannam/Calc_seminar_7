@@ -5,7 +5,7 @@
 * controller - Дения
 * rational - Аня
 * ui - Егор
-* Блок-схема - Аня
+* block_diagram , readme - Аня
 * logs - Давид
 * testing - Иван
 
