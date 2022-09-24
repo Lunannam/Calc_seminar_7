@@ -1,6 +1,4 @@
 # import check_number as cn
-from lib2to3.pgen2.token import LEFTSHIFT
-from tkinter import LEFT
 import complex as compl
 import rational as ratio
 import ui
