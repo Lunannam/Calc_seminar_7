@@ -28,5 +28,5 @@ def choice_calc(number:str) -> int:
     Выбор калькулятора
     '''
 
-    calc = f.check_symbol(number)
+    calc = f.check_calc(number)
     return calc

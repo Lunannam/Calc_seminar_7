@@ -35,7 +35,7 @@ def check_symbol(symbol:str) -> str:
         except ValueError:
             print('Ошибка! Должен быть знак действия ("+", "-", "*", "/")!')
 
-def check_symbol(digit:str) -> int:
+def check_calc(digit:str) -> int:
     '''
     Поверка выбора калькулятора
     '''
