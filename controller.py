@@ -1,4 +1,4 @@
-import complex as compl
+import calculator as compl
 import rational as ratio
 import ui
 import logs
@@ -28,13 +28,13 @@ def button_click():
         first_r = ui.rational_number('Введите первое рациональное число: ')
         sign = ui.operation('Введите знак операции: (+, -, *, /): ')
         second_r = ui.rational_number('Введите второе рациональное число: ')
-        ratio.init(first_r, second_r)
+        compl.init_ratio(first_r, second_r)
         if sign == '+':
-            result = ratio.sum()
+            result = compl.sum()
         if sign == '-':
-            result = ratio.sub()
+            result = compl.sub()
         if sign == '*':
-            result = ratio.mult()
+            result = compl.mult()
         if sign == '/':
             if second_r == 0:
                 print('Деление на 0 невозможно!')
@@ -42,7 +42,7 @@ def button_click():
                 logs.logger(data_log, "Деление на 0 невозможно!")
                 exit()
             else:
-                result = ratio.div()
+                result = compl.div()
         data_log = '' + str(first_r) + ' ' + sign + ' ' + str(second_r)
         print(f"Для этого примера: {data_log} ответ будет: {result}")
         logs.logger(data_log, result)
@@ -52,7 +52,7 @@ def button_click():
         sign = ui.operation('Введите знак операции: (+, -, *, /): ')
         second_r = ui.complex_number('Введите действительную часть второго числа: ')
         second_mn = ui.complex_number('Введите мнимую часть второго числа: ')
-        compl.init(first_r, first_mn, second_r, second_mn)
+        compl.init_compl(first_r, first_mn, second_r, second_mn)
         if sign == '+':
             result = compl.sum()
         if sign == '-':

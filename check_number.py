@@ -29,6 +29,8 @@ def check_symbol(symbol: str) -> str:
             sym = input(symbol)
             if sym in '+-*/':
                 return sym
+            else:
+                print('Ошибка! Должен быть знак действия ("+", "-", "*", "/")!')
         except ValueError:
             print('Ошибка! Должен быть знак действия ("+", "-", "*", "/")!')
 
