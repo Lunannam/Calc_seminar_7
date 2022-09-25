@@ -1,5 +1,4 @@
-import calculator as compl
-import rational as ratio
+import calculator as calcul
 import ui
 import logs
 
@@ -23,52 +22,68 @@ def button_click():
     '''
     Функция запрашивает данные, решает и выводит
     '''
-    name = ui.choice_calc('Для выбора калькулятора рациональных чисел нажмите 1, для комплексных - 2: ')
+    name = ui.choice_calc(
+        'Для выбора калькулятора рациональных чисел нажмите 1, для комплексных - 2: ')
     if name == 1:
         first_r = ui.rational_number('Введите первое рациональное число: ')
         sign = ui.operation('Введите знак операции: (+, -, *, /): ')
         second_r = ui.rational_number('Введите второе рациональное число: ')
-        compl.init_ratio(first_r, second_r)
-        if sign == '+':
-            result = compl.sum()
-        if sign == '-':
-            result = compl.sub()
-        if sign == '*':
-            result = compl.mult()
-        if sign == '/':
-            if second_r == 0:
-                print('Деление на 0 невозможно!')
-                data_log = '' + str(first_r) + ' ' + sign + ' ' + str(second_r)
-                logs.logger(data_log, "Деление на 0 невозможно!")
-                exit()
-            else:
-                result = compl.div()
+        second_mn = 0
+        calcul.init_ratio(first_r, second_r)
         data_log = '' + str(first_r) + ' ' + sign + ' ' + str(second_r)
-        print(f"Для этого примера: {data_log} ответ будет: {result}")
-        logs.logger(data_log, result)
     elif name == 2:
-        first_r = ui.complex_number('Введите действительную часть первого числа: ')
+        first_r = ui.complex_number(
+            'Введите действительную часть первого числа: ')
         first_mn = ui.complex_number('Введите мнимую часть первого числа: ')
         sign = ui.operation('Введите знак операции: (+, -, *, /): ')
-        second_r = ui.complex_number('Введите действительную часть второго числа: ')
+        second_r = ui.complex_number(
+            'Введите действительную часть второго числа: ')
         second_mn = ui.complex_number('Введите мнимую часть второго числа: ')
-        compl.init_compl(first_r, first_mn, second_r, second_mn)
-        if sign == '+':
-            result = compl.sum()
-        if sign == '-':
-            result = compl.sub()
-        if sign == '*':
-            result = compl.mult()
-        if sign == '/':
-            if second_r == 0 and second_mn == 0:
-                print('Деление на 0 невозможно!')
-                data_log = msg_compl(first_r, first_mn, second_r, second_mn, sign)
-                logs.logger(data_log, "Деление на 0 невозможно!")
-                exit()
-            else:
-                result = compl.div()
-
+        calcul.init_compl(first_r, first_mn, second_r, second_mn)
         data_log = msg_compl(first_r, first_mn, second_r, second_mn, sign)
-        print(f"Для этого примера: {data_log} ответ будет: {result}")
-        logs.logger(data_log, result)
-        
+    if calcul.check_dev_null(second_r, second_mn, sign) == True:
+        result = 'Деление на 0 невозможно!'
+        print(result)
+    else:
+        if sign == '+':
+            result = calcul.sum()
+        if sign == '-':
+            result = calcul.sub()
+        if sign == '*':
+            result = calcul.mult()
+        if sign == '/':
+            result = calcul.div()
+        # data_log = '' + str(first_r) + ' ' + sign + ' ' + str(second_r)
+        # print(f"Для этого примера: {data_log} ответ будет: {result}")
+        # logs.logger(data_log, result)
+    # elif name == 2:
+    #     first_r = ui.complex_number('Введите действительную часть первого числа: ')
+    #     first_mn = ui.complex_number('Введите мнимую часть первого числа: ')
+    #     sign = ui.operation('Введите знак операции: (+, -, *, /): ')
+    #     second_r = ui.complex_number('Введите действительную часть второго числа: ')
+    #     second_mn = ui.complex_number('Введите мнимую часть второго числа: ')
+    #     calcul.init_compl(first_r, first_mn, second_r, second_mn)
+
+        # result = calcul.check_dev_null(second_r, second_mn, sign)
+        # if result == 'Деление на 0 невозможно!':
+        #     print(result)
+        # else:
+        #     if sign == '+':
+        #         result = calcul.sum()
+        #     if sign == '-':
+        #         result = calcul.sub()
+        #     if sign == '*':
+        #         result = calcul.mult()
+        #     if sign == '/':
+        #         # if second_r == 0 and second_mn == 0:
+        #         #     result = 'Деление на 0 невозможно!'
+        #         #     print('Деление на 0 невозможно!')
+        #         #     data_log = msg_compl(first_r, first_mn, second_r, second_mn, sign)
+        #         #     logs.logger(data_log, result)
+        #         #     exit()
+        #         # else:
+        #         result = calcul.div()
+
+        # data_log = msg_compl(first_r, first_mn, second_r, second_mn, sign)
+    print(f"Для этого примера: {data_log} ответ будет: {result}")
+    logs.logger(data_log, result)
