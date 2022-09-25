@@ -22,23 +22,18 @@ def button_click():
     '''
     Функция запрашивает данные, решает и выводит
     '''
-    name = ui.choice_calc(
-        'Для выбора калькулятора рациональных чисел нажмите 1, для комплексных - 2: ')
+    name = ui.choice_calc('')
     if name == 1:
-        first_r = ui.rational_number('Введите первое рациональное число: ')
+        first_r = ui.rational_number(1)
         sign = ui.operation('Введите знак операции: (+, -, *, /): ')
-        second_r = ui.rational_number('Введите второе рациональное число: ')
+        second_r = ui.rational_number(2)
         second_mn = 0
         calcul.init_ratio(first_r, second_r)
         data_log = '' + str(first_r) + ' ' + sign + ' ' + str(second_r)
     elif name == 2:
-        first_r = ui.complex_number(
-            'Введите действительную часть первого числа: ')
-        first_mn = ui.complex_number('Введите мнимую часть первого числа: ')
+        first_r, first_mn = ui.complex_number(1)
         sign = ui.operation('Введите знак операции: (+, -, *, /): ')
-        second_r = ui.complex_number(
-            'Введите действительную часть второго числа: ')
-        second_mn = ui.complex_number('Введите мнимую часть второго числа: ')
+        second_r, second_mn = ui.complex_number(2)
         calcul.init_compl(first_r, first_mn, second_r, second_mn)
         data_log = msg_compl(first_r, first_mn, second_r, second_mn, sign)
     if calcul.check_dev_null(second_r, second_mn, sign) == True:
@@ -85,5 +80,5 @@ def button_click():
         #         result = calcul.div()
 
         # data_log = msg_compl(first_r, first_mn, second_r, second_mn, sign)
-    print(f"Для этого примера: {data_log} ответ будет: {result}")
+    ui.output_result(data_log, result)
     logs.logger(data_log, result)
