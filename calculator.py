@@ -13,8 +13,8 @@ def init_compl(ad, am, bd, bm):
 def init_ratio(a,b):
     global x
     global y
-    x = float(a)
-    y = float(b)
+    x = float(round(a,5))
+    y = float(round(b,5))
 
 def sum():
     return x + y

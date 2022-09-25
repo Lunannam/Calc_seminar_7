@@ -8,6 +8,7 @@ def rational_number(number:str) -> float:
     '''
     input_data = Fore.BLUE + f'Введите {number} рациональное число: ' + Style.RESET_ALL
     return f.check_float_number(input_data)
+    
 
 def complex_number(number:str) -> complex:
     '''

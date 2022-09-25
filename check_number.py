@@ -1,3 +1,6 @@
+from colorama import *
+init(autoreset=True)
+
 def check_int_number(number: str) -> int:
     '''
     Поверка на целое число
@@ -6,7 +9,7 @@ def check_int_number(number: str) -> int:
         try:
             return int(input(number))
         except ValueError:
-            print('Ошибка! Должно быть целое число!')
+            print(Back.RED + 'Ошибка! Должно быть целое число!')
 
 
 def check_float_number(number: str) -> float:
@@ -17,7 +20,7 @@ def check_float_number(number: str) -> float:
         try:
             return float(input(number))
         except ValueError:
-            print('Ошибка! Должно быть дробное число!')
+            print(Back.RED + 'Ошибка! Должно быть дробное число!')
 
 
 def check_symbol(symbol: str) -> str:
@@ -30,9 +33,9 @@ def check_symbol(symbol: str) -> str:
             if sym in '+-*/':
                 return sym
             else:
-                print('Ошибка! Должен быть знак действия ("+", "-", "*", "/")!')
+                print(Back.RED + 'Ошибка! Должен быть знак действия ("+", "-", "*", "/")!')
         except ValueError:
-            print('Ошибка! Должен быть знак действия ("+", "-", "*", "/")!')
+            print(Back.RED + 'Ошибка! Должен быть знак действия ("+", "-", "*", "/")!')
 
 
 def check_calc(digit: str) -> int:
@@ -45,6 +48,6 @@ def check_calc(digit: str) -> int:
             if calc_choice in '12':
                 return int(calc_choice)
             else:
-                print('Ошибка! Для выбора калькулятора рациональных чисел нажмите 1, для комплексных - 2')
+                print(Back.RED + 'Ошибка! Для выбора калькулятора рациональных чисел нажмите 1, для комплексных - 2')
         except ValueError:
-            print('Ошибка! Для выбора калькулятора рациональных чисел нажмите 1, для комплексных - 2')
+            print(Back.RED + 'Ошибка! Для выбора калькулятора рациональных чисел нажмите 1, для комплексных - 2')
