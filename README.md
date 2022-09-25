@@ -1,4 +1,3 @@
-
 **Responsibilities**
 * check_number - Егор
 * complex - Давид
