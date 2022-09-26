@@ -2,6 +2,7 @@ import calculator as calcul
 import ui
 import logs
 
+
 def button_click():
     '''
     Функция запрашивает данные, решает и выводит
