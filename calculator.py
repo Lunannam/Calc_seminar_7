@@ -1,6 +1,3 @@
-from ctypes import Union
-
-
 x = 0
 y = 0
 
@@ -10,7 +7,7 @@ def init_compl(ad, am, bd, bm):
     x = complex(ad, am)
     y = complex(bd, bm)
 
-def init_ratio(a,b):
+def init_ratio(a, b):
     global x
     global y
     x = float(a)
@@ -26,10 +23,4 @@ def mult():
     return x * y
 
 def div():
-    if y!=0:
-        return x / y
-    else:
-        return False
-        result = 'Деление на 0 невозможно!'
-        print(result)
-
+    return x / y if y != 0 else False
