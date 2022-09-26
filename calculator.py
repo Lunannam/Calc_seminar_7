@@ -26,14 +26,10 @@ def mult():
     return x * y
 
 def div():
-    return x / y
+    if y!=0:
+        return x / y
+    else:
+        return False
+        result = 'Деление на 0 невозможно!'
+        print(result)
 
-def check_dev_null(denominator_r: float, denominator_mn: float, sign: str)-> bool:
-    '''
-    Функция проверяет деление на 0
-    '''
-    if denominator_r == 0 and denominator_mn == 0 and sign == '/':
-        return True
-        # data_log = msg_compl(first_r, first_mn, second_r, second_mn, sign)
-        # logs.logger(data_log, "Деление на 0 невозможно!")
-        exit()
