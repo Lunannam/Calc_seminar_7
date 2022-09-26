@@ -27,7 +27,7 @@ def check_symbol(symbol: str) -> str:
     while True:
         try:
             sym = input(symbol)
-            if sym in '+-*/':
+            if sym == '+' or sym =='-' or sym =='*' or sym =='/':
                 return sym
             else:
                 print('Ошибка! Должен быть знак действия ("+", "-", "*", "/")!')
@@ -41,9 +41,9 @@ def check_calc(digit: str) -> int:
     '''
     while True:
         try:
-            calc_choice = input(digit)
-            if calc_choice in '12':
-                return int(calc_choice)
+            calc_choice = int(input(digit))
+            if calc_choice == 1 or calc_choice == 2:
+                return calc_choice
             else:
                 print('Ошибка! Для выбора калькулятора рациональных чисел нажмите 1, для комплексных - 2')
         except ValueError:

@@ -21,14 +21,18 @@ def operation(oper:str) -> str:
     '''
     Ввод операции
     '''
-    return f.check_symbol(oper)
+    input_sign = Fore.YELLOW + f'Введите знак операции: (+, -, *, /):{oper}' + Style.RESET_ALL
+    return f.check_symbol(input_sign)
 
 def choice_calc(number:str) -> int:
     '''
     Выбор калькулятора
     '''
-    print(Fore.RED + 'Для выбора калькулятора рациональных чисел нажмите 1, для комплексных - 2: ' + Style.RESET_ALL)
+    print(Fore.YELLOW + 'Для выбора калькулятора рациональных чисел нажмите 1, для комплексных - 2: ' + Style.RESET_ALL)
     return f.check_calc(number)
 
 def output_result(data, res):
-    print(f"Для этого примера: {data} ответ будет: {res}")
+    '''
+    Вывод результата
+    '''
+    print(Fore.YELLOW + f"Для этого примера: {data} ответ будет: {res}"  + Style.RESET_ALL)
